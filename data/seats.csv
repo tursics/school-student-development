@@ -1,0 +1,59 @@
+bsn,title,commutingarea,regionnumber,regiontitle,draftiness2018,seats2018,students2018,workload2018,classsizes2018,diffdraftiness2019,draftiness2019,seats2019,students2019,workload2019,classsizes2019,diffdraftiness2020,draftiness2020,seats2020,,,,,,,,,,,
+,,,,,2018/19,,,,,2019/20,,,,,,2020/21,,,,Erw.,Erw.,bau,,,,günstiger Fall,,Plätze,für 2024
+Nr.,Name,ESB,Pl-R,Planungsregion,"18/19
+Züge","18/19
+Plätze","18/19
+SuS","18/19
+Ausl.","Ø-Frequ.
+lt. Zügigk.","19/20
+VÄ Zü","19/20
+Züge","19/20
+Plätze","19/20
+SuS","19/20
+Ausl.","Ø-Frequ.
+lt. Zügigk.","20/21
+VÄ Zü","20/21
+Züge","20/21
+Plätze","20/21
+KlAufn",,temp.,ok?,wann?,was?,steht wo?,Ges-Kapaz.,,im ESB,14.12.17
+G40,Möwensee-GS,1,1,Parkviertel,3,432,486,113%,"27,0",,3,432,466,108%,"25,9",1,4,576,5,1,,ja,2020?,"MEB 12, vsl. Baubeginn 2019",Schulbaufahrplan 17.04.18,"4,0",,,
+G42,Anna-Lindh-Schule,1,1,Parkviertel,"4,5",648,815,126%,"30,2",,"4,5",648,774,119%,"28,7",,"4,5",648,6,"1,5",,nein,,Bezirk prüft Erweiterung. BSO IX,Schulbaufahrplan 17.04.18,"6,0",,,
+G24,Gottfried-Röhl-GS,2,1,Parkviertel,"3,5",504,485,96%,"23,1",,"3,5",504,498,99%,"23,7",,"3,5",504,3,"1,5",,offen,k.A.,Bezirk prüft Erweiterung. BSO IX,Schulbaufahrplan 17.04.18,"5,0",,,
+G41,Erika-Mann-GS,2,1,Parkviertel,"4,5",648,637,98%,"23,6",,"4,5",648,617,95%,"22,9",,"4,5",648,4,,,nein,,,,"4,5",,,
+Gn08,(Reinickendorfer Str.),2,1,Parkviertel,,,,,,,,,,,,,,,,4,,ja,2023,BSO II,Schulbaufahrplan 17.04.18,"4,0",,,
+G29,Wilhelm-Hauff-GS,3,2,Osloer Straße,"3,5",504,423,84%,"20,1",,"3,5",504,426,85%,"20,3",,"3,5",504,4,,,nein,,,,"3,5",,,
+G32,Carl-Kraemer-GS,3,2,Osloer Straße,"3,5",504,487,97%,"23,2",,"3,5",504,480,95%,"22,9",,"3,5",504,4,,,nein,,,,"3,5",,,
+G36,Andersen-GS,3,2,Osloer Straße,"2,5",360,399,111%,"26,6",,"2,5",360,383,106%,"25,5",,"2,5",360,3,"0,5",,offen,k.A.,Bezirk prüft Erweiterung. BSO IX. Dachausbau,Schulbaufahrplan 17.04.18,"3,0",,,
+Gn05,(Gotenburger Str.),3,2,Osloer Straße,,,,,,,,,,,,,,,,3,,ja,k.A.,Bezirk prüft Reaktivierung. BSO IX,Schulbaufahrplan 17.04.18,"3,0",,,
+G25,Rudolf-Wissell-GS,7,2,Osloer Straße,"4,5",648,436,67%,"16,1",,"4,5",648,414,64%,"15,3",,"4,5",648,4,,,nein,,,,"4,5",,,
+G27,Gesundbrunnen-GS,7,2,Osloer Straße,"4,5",648,554,85%,"20,5",,"4,5",648,582,90%,"21,6",,"4,5",648,4,,,nein,,,,"4,5",,,
+G37,Heinrich-Seidel-GS,7,2,Osloer Straße,"3,5",504,549,109%,"26,1",,"3,5",504,528,105%,"25,1",,"3,5",504,4,,,nein,,,,"3,5",,,
+G28,Brüder-Grimm-GS,4,3,Wedding,"3,5",504,387,77%,"18,4",,"3,5",504,402,80%,"19,1",,"3,5",504,4,,,offen,,,,"3,5",,,
+G45,Leo-Lionni-GS,4,3,Wedding,4,576,562,98%,"23,4",,4,576,566,98%,"23,6",,4,576,5,,,nein,,,,"4,0",,,
+G31,Wedding-GS,5,3,Wedding,4,576,542,94%,"22,6",,4,576,564,98%,"23,5",,4,576,4,1,,nein,k.A.,Bezirk plant Arrondierung. BSO IX,Schulbaufahrplan 17.04.18,"5,0",,,
+G43,Albert-Gutzmann-GS,5,3,Wedding,3,432,429,99%,"23,8",,3,432,456,106%,"25,3",,3,432,3,1,,ja,k.A.,Bezirk prüft Erweiterung im Zusammenhang mit Neubau 01Kn02. BSO IX,Schulbaufahrplan 17.04.18,"4,0",,,
+G18,Carl-Bolle-GS,8,4,Moabit-West,3,432,347,80%,"19,3",,3,432,341,79%,"18,9",,3,432,3,,,nein,,,,"3,0",,,
+K10,Theodor-Heuss-Schule (GS-Teil),8,4,Moabit-West,"2,5",360,285,79%,"19,0",,"2,5",360,285,79%,"19,0",,"2,5",360,3,,,nein,,,,"2,5",,,
+G19,Hansa-GS,11,4,Moabit-West,2,288,389,135%,"32,4",,2,288,375,130%,"31,3",,2,288,2,,,nein,,,,"2,0",,,
+G47,Miriam-Makeba-GS,11,4,Moabit-West,"4,5",648,467,72%,"17,3",,"4,5",648,470,73%,"17,4",,"4,5",648,5,,,nein,,,,"4,5",,,
+K04,Heinrich-von-Stephan-Schule (GS-Teil),11,4,Moabit-West,"1,5",216,133,62%,"14,8",,"1,5",216,133,62%,"14,8",,"1,5",216,2,,,ja,,"Erweiterung von 1,5 auf 2,0 zu 2027/28 geplant",,"1,5",,,
+G11,Kurt-Tucholsky-GS,9,5,Moabit-Ost,4,576,664,115%,"27,7",,4,576,669,116%,"27,9",,4,576,5,"1,5",,ja,k.A.,Bezirk prüft Erweiterung. BSO IX. ehem. Polizeigebäude Kruppstr.,Schulbaufahrplan 17.04.18,"5,5","5,5",792,853
+G15,Anne-Frank-GS,12,5,Moabit-Ost,2,288,370,128%,"30,8",,2,288,358,124%,"29,8",,2,288,3,,,offen,,,,"2,0",,,
+G16,Moabiter GS,12,5,Moabit-Ost,4,576,410,71%,"17,1",,4,576,415,72%,"17,3",,4,576,5,,,nein,,,,"4,0",,,
+G35,Humboldthain-GS,6,6,Chariteviertel,"3,5",504,472,94%,"22,5",,"3,5",504,392,78%,"18,7",,"3,5",504,4,,,nein,,,,"3,5",,,
+G48,48. Grundschule,6,6,Chariteviertel,,,,,,"1,5","1,5",216,104,48%,"11,6",,"1,5",216,3,2,,ja,2020,BSO I,Schulbaufahrplan 17.04.18,"2,0",,,
+G05,GS Neues Tor (SESB),13,6,Chariteviertel,"2,5",360,419,116%,"27,9",,"2,5",360,407,113%,"27,1",,"2,5",360,1,,,nein,,,,"2,5","2,5",360,621
+G38,Gustav-Falke-GS,10,7,Brunnenstraße,"3,5",504,467,93%,"22,2",,"3,5",504,532,106%,"25,3",,"3,5",504,4,2,,ja,2019,"MEB 16 + Mensa, BSO MEB",Schulbaufahrplan 17.04.18,"5,5",,,
+G39,Vineta-GS,10,7,Brunnenstraße,3,432,424,98%,"23,6",,3,432,418,97%,"23,2",,3,432,3,,,nein,,,,"3,0",,,
+G01,GS am Arkonaplatz (SESB),14,7,Brunnenstraße,2,288,455,158%,"37,9",,2,288,451,157%,"37,6",,2,288,2,,,nein,,,,"2,0",,,
+G02,Papageno-GS,14,7,Brunnenstraße,"3,5",504,556,110%,"26,5",,"3,5",504,567,113%,"27,0",,"3,5",504,4,,"0,5",ja,2018,"temporäre Erweiterung, keine Größen-Angabe",Schulbaufahrplan 17.04.18,"3,5",,,
+G46,GS am Koppenplatz,15,7,Brunnenstraße,5,720,767,107%,"25,6",,5,720,740,103%,"24,7",,5,720,6,1,,offen,k.A.,Bezirk prüft Erweiterung (keine BSO-Zif. angegeben!),Schulbaufahrplan 17.04.18,"6,0","6,0",864,890
+G04,Kastanienbaum-GS,18,7,Brunnenstraße,"2,5",360,399,111%,"26,6",,"2,5",360,420,117%,"28,0",,"2,5",360,3,,,nein,,,,"2,5","2,5",360,470
+G44,Allegro-GS,16,8,Tiergarten-Süd,"2,5",360,428,119%,"28,5",,"2,5",360,436,121%,"29,1",,"2,5",360,3,,,ja,,,,"2,5","2,5",360,540
+G08,GS am Brandenburger Tor (SESB),17,9,Regierungsviertel,3,432,566,131%,"31,4",,3,432,565,131%,"31,4",,3,432,2,"1,5",,nein,k.A.,Arrondierung / Bezirk prüft Abbau Fremdnutzung,Schulbaufahrplan 17.04.18,"4,5","4,5",648,939
+G10,City-GS,19,10,Heine-Viertel,"2,5",360,444,123%,"29,6",,"2,5",360,483,134%,"32,2",,"2,5",360,5,1,,ja,k.A.,Bezirk prüft Erweiterung. BSO IX,Schulbaufahrplan 17.04.18,"3,5",,,
+Gn01,(Adalbert-GS),19,10,Heine-Viertel,,,,,,,,,,,,,,,,4,,ja,2023,BSO II,Schulbaufahrplan 17.04.18,"4,0",,,
+Gn09,(Wallstraßen-GS),19,10,Heine-Viertel,,,,,,,,,,,,,,,,2,,offen,k.A.,Bezirk prüft Reaktivierung. BSO IX,Schulbaufahrplan 17.04.18,"2,0",,,
+G07,GutsMuths-GS,20,11,Alexanderplatz,"2,5",360,362,101%,"24,1",,"2,5",360,350,97%,"23,3",,"2,5",360,3,"1,5",,ja,k.a.,Bezirk prüft Erweiterung. BSO IX,Schulbaufahrplan 17.04.18,"4,0","4,0",576,804
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SUMMEN,,,,,"111,5",16.056,16.015,,,,"113,0",16.272,16.067,,,,"114,0",16.416,"128,0",30,,,,,,"141,5",,3.960,5.117
