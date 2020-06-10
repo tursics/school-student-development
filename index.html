@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+
+	<meta name="author" content="Thomas Tursics" />
+	<meta name="keywords" content="Berlin,Schule,Sanierung,Schulsanierung,Marzahn,Hellersdorf" />
+	<meta name="robots" content="index,follow" />
+
+ 	<title>Schulsanierung 2020 und 2021</title>
+	<meta property="og:title" content="Schulsanierung 2020 und 2021" />
+
+	<meta name="description" content="Marzahn-Hellersdorf investiert 140 Millionen Euro in den nächsten Jahren aus eigenen Mitteln in seine Schulgebäude. Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen." />
+	<meta property="og:description" content="Marzahn-Hellersdorf investiert 140 Millionen Euro in den nächsten Jahren aus eigenen Mitteln in seine Schulgebäude. Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen." />
+
+	<link rel="image_src" type="image/png" href="http://www.tursics.de/story/schule-marzahn-2020/assets/social.png" />
+	<meta property="og:image" content="http://www.tursics.de/story/schule-marzahn-2020/assets/social.png" />
+
+	<meta property="og:url" content="http://www.tursics.de/story/schule-marzahn-2020/">
+
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@tursics">
+	<meta name="twitter:creator" content="@tursics">
+
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
+	<link rel="stylesheet" href="lib/font-awesome-4.6.3/css/font-awesome.css">
+	<link rel="stylesheet" href="lib/leaflet-0.7.7/leaflet.css" />
+	<link rel="stylesheet" href="theme/worker/index.css" />
+	<link rel="stylesheet" href="lib/leaflet.awesome-markers-2.0.2/leaflet.awesome-markers.css">
+
+	<script src="lib/d3-3.5.5/d3.min.js"></script>
+	<script src="lib/leaflet-0.7.7/leaflet.js"></script>
+	<script src="lib/jquery.mobile-1.4.2/jquery-1.11.1.min.js"></script>
+	<script src="lib/tursics.ddj.js"></script>
+	<script src="lib/tursics.ddj.map.js"></script>
+	<script src="lib/tursics.ddj.marker.js"></script>
+	<script src="lib/tursics.ddj.quickinfo.js"></script>
+	<script src="lib/tursics.ddj.search.js"></script>
+	<script src="lib/tursics.ddj.voronoi.js"></script>
+	<script src="index.js"></script>
+	<script src="lib/jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<script src="lib/jquery.autocomplete-1.2.25/jquery.autocomplete.min.js"></script>
+	<script src="lib/leaflet.awesome-markers-2.0.2/leaflet.awesome-markers.min.js"></script>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="./assets/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/assets/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<div data-role="page" id="pageMap">
+		<div role="main" class="ui-content" id="mapContainer"></div>
+		<div class="bigSign">
+			<div class="sign visibleWithoutErrors" id="infoSign">
+				<h3>
+					<span class="logo"><img src="assets/arms-marzahn-hellersdorf.svg"></span>
+					Schulsanierung 2020 und 2021
+				</h3>
+				<div class="signLine">
+					Marzahn-Hellersdorf
+				</div>
+				<div>
+					Marzahn-Hellersdorf investiert 140 Millionen Euro in den nächsten Jahren aus eigenen Mitteln in seine Schulgebäude.
+				</div>
+				<div>
+					Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen.
+				</div>
+				<div class="visibleWithData hideMobile" style="padding-bottom: 0;">
+					Oder suchen sie nach einer Schule:
+				</div>
+				<div class="searchInput visibleWithData hideMobile">
+					<input type="text" name="schools" id="autocomplete" placeholder="hier suchen" />
+					<div><i class="fa fa-search" aria-hidden="true"></i></div>
+				</div>
+				<div class="visibleWithoutData center">
+					<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+				</div>
+			</div>
+			<div class="sign normal" id="receipt" data-quickinfo="box">
+				<h3>
+					<span class="logo"><img src="assets/arms-marzahn-hellersdorf.svg"></span>
+					<span data-quickdata="Schulart"></span>
+				</h3>
+				<div class="signLine"><span data-quickdata="Schulname"></span> (<span data-quickdata="BSN"></span>)</div>
+				<div>
+					<div data-quickdata="Strasse"></div>
+					<div><span data-quickdata="PLZ"></span> Berlin</div>
+					<div data-quickinfo="list">
+						<div data-quickinfo="item">
+							<div class="empty"></div>
+							<div class="bold" data-quickdata="Maßnahme"></div>
+							<div>Geplanter Baubeginn: <span data-quickdata="Baubeginn"></span></div>
+							<div>Kosten: <span data-quickdata="Summe"></span></div>
+						</div>
+					</div>
+				</div>
+				<div id="receiptClose" data-quickinfo="close"><i class="fa fa-chevron-left" aria-hidden="true"></i>schließen</div>
+			</div>
+			<div class="sign visibleWithErrors" id="errorPAge">
+				<h3>
+					Es ist ein Fehler aufgetreten
+				</h3>
+				<div class="signLine">
+					Entschuldigung, das hätte nicht passieren sollen
+				</div>
+				<div>
+					Bitte lade diese Seite noch einmal neu oder schicke mir eine <a href="mailto:thomas@tursics.de">Nachricht per E-Mail</a>.
+				</div>
+			</div>
+		</div>
+		<div data-role="popup" id="popupShare" data-theme="a" class="ui-corner-all">
+			<div style="padding:0;margin:-1px 0 0 -1px;overflow-x:hidden;">
+				<div data-role="tabs" id="tabs" style="padding:0;">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#shareLink" id="tabShareLink" data-ajax="false" class="ui-btn-active">Link teilen</a></li>
+							<li><a href="#embedMap" id="tabEmbedMap" data-ajax="false">Karte einbetten</a></li>
+						</ul>
+					</div>
+					<div id="shareLink" class="ui-body-d ui-content">
+						<div>
+							In sozialen Netzwerken teilen:
+							<div class="social">
+								<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.tursics.de%2Fstory%2Fschule-marzahn-2020%2F" rel="popup" title="Bei Facebook teilen">Facebook<span></span></a>
+								<a class="twitter"  href="https://twitter.com/intent/tweet?text=Schulsanierung%202020%20und%202021&amp;url=http://www.tursics.de/story/schule-marzahn-2020/" rel="popup" title="Bei Twitter teilen">Twitter<span></span></a>
+								<a class="whatsapp" href="whatsapp://send?text=Schulsanierung%202020%20und%202021%3A%20http%3A%2F%2Fwww.tursics.de%2Fstory%2Fschule-marzahn-2020%2F" rel="popup" title="Bei WhatsApp teilen">WhatsApp<span></span></a>
+							</div>
+						</div>
+						<div>
+							oder den Link kopieren:<br>
+							<input value="http://www.tursics.de/story/schule-marzahn-2020/">
+						</div>
+						<div style="text-align:center;margin:0;"><a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Schließen</a></div>
+					</div>
+					<div id="embedMap" class="ui-body-d ui-content">
+						<div style="width:400px">
+							Den Codeschnipsel können Sie direkt in Ihre Webseite oder in Ihren Wordpress-Blog einbauen.<br>
+						</div>
+						<div class="ui-field-contain ui-grid-b">
+							<div class="ui-block-a" style="padding:0 1em 0 0;margin:0;">
+								<select id="selectEmbedSize" data-native-menu="false" data-inline="false">
+									<option value="400x300">Klein</option>
+									<option value="650x450">Mittel</option>
+									<option value="800x600">Groß</option>
+								</select>
+							</div>
+							<div class="ui-block-b" style="width:66.666%;padding:.25em 0 0 0;margin:0;">
+								<input id="inputEmbedURI" value="" data-inline="true">
+							</div>
+						</div>
+						<iframe></iframe>
+						<div style="text-align:center;margin:.8em 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Schließen</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAuthor" data-theme="a" class="ui-corner-all">
+			<div style="padding:10px 20px;">
+				<h3>Über die Karte</h3>
+				<div>
+ 					Berlin, 23.01.2020
+				</div>
+				<div>
+					Die Daten wurden direkt vom Bezirksamt geliefert
+					und können als <a href="http://tursics.de/story/schule-marzahn-2020/data/spreadsheets.php">Rohdaten heruntergeladen</a> werden.
+					Die Webseitenquelltexte können Sie <a href="https://github.com/tursics/schule-marzahn-2020">auf github</a> ansehen und frei (MIT-Lizenz) verwenden.
+					Die Icons wurden von <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> über <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> bereit gestellt.
+				</div>
+				<div>
+					Haben Sie eine Anmerkung oder einen Fehler entdeckt, dann freue ich mich über <a href="mailto:thomas@tursics.de">Ihre E-Mail</a>.
+				</div>
+				<div style="text-align:center;margin:.8em 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Schließen</a></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
