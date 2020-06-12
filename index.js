@@ -9,6 +9,7 @@ var config = {
 	dataUrl: 'https://tursics.com/script/school-student-development/spreadsheets.php',
 	dataIgnoreSecondLine: true,
 	dataIgnoreLastLine: true,
+	embedUrl: 'https://tursics.github.io/school-student-development/',
 	mapboxId: 'tursics.l7ad5ee8',
 	mapboxToken: 'pk.eyJ1IjoidHVyc2ljcyIsImEiOiI1UWlEY3RNIn0.U9sg8F_23xWXLn4QdfZeqg',
 	mapCenterLat: 52.524889, // center the main station in Berlin-Mitte
@@ -49,6 +50,15 @@ function selectSuggestion(selection) {
 
 // -----------------------------------------------------------------------------
 
+function dataUpdated() {
+	'use strict';
+	
+	var classSizes = document.getElementById('settingClassSizes');
+	console.log(classSizes);
+}
+
+// -----------------------------------------------------------------------------
+
 var ControlInfo = L.Control.extend({
 	options: {
 		position: 'bottomright'
@@ -82,7 +92,7 @@ $(document).on("pageshow", "#pageMap", function () {
 		var size = $('#selectEmbedSize').val().split('x'),
 			x = size[0],
 			y = size[1],
-			html = '<iframe src="https://tursics.github.io/schule-marzahn-2020/" width="' + x + '" height="' + y + '" frameborder="0" style="border:0" allowfullscreen></iframe>';
+			html = '<iframe src="' + config.embedUrl + '" width="' + x + '" height="' + y + '" frameborder="0" style="border:0" allowfullscreen></iframe>';
 
 		$('#inputEmbedURI').val(html);
 		if (-1 === $('#embedMap iframe')[0].outerHTML.indexOf('width="' + x + '"')) {
@@ -134,7 +144,7 @@ $(document).on("pageshow", "#pageMap", function () {
 			showNoSuggestion: true,
 			titleNoSuggestion: '<i class="fa fa-info-circle" aria-hidden="true"></i> Geben sie bitte den Namen einer Schule ein',
 			onAdd: function (obj, value) {
-				var name = value.Schulname,
+				var name = value.title,
 					color = 'darkred';
 
 				if ('' !== value.BSN) {
@@ -146,7 +156,7 @@ $(document).on("pageshow", "#pageMap", function () {
 				obj.data = value.BSN;
 				obj.color = color;
 				obj.value = name;
-				obj.desc = value.Schulart;
+				obj.desc = value.regiontitle;
 
 				return true;
 			},
