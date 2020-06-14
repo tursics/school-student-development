@@ -17,10 +17,45 @@ var config = {
 	mapZoom: 13,
 };
 
+var userInput = {
+	primarySchoolYears: 6,
+	classSizes:  24,
+	seatsPerClassSizes: 144,
+}
+
 // -----------------------------------------------------------------------------
 
 function mapAction() {
 	'use strict';
+}
+
+// -----------------------------------------------------------------------------
+
+function parseGermanFloat(str) {
+	'use strict';
+
+	if ((str === '') || (str === null) || (str === undefined) || (typeof str === undefined)) {
+		return str;
+	}
+
+	var number = str.replace(/,/g, '.');
+	return parseFloat(number);
+}
+
+// -----------------------------------------------------------------------------
+
+function formatGermanFloat(number, fractional) {
+	'use strict';
+
+	if (isNaN(number)) {
+		return null;
+	}
+
+	var ten = Math.pow(10, fractional);
+	var rounded = parseInt(number * ten, 10) / ten;
+	var str = rounded + '';
+
+	return str.replace(/\./g, ',');
 }
 
 // -----------------------------------------------------------------------------
@@ -50,11 +85,38 @@ function selectSuggestion(selection) {
 
 // -----------------------------------------------------------------------------
 
+function updateDirtyData() {
+	'use strict';
+
+	userInput.seatsPerClassSizes = userInput.classSizes * userInput.primarySchoolYears;
+
+	if (ddj.getData() === null) {
+		return;
+	}
+
+	$.each(ddj.getData(), function (key, val) {
+		val.seats2018 = formatGermanFloat(parseGermanFloat(val.draftiness2018) * userInput.seatsPerClassSizes, 0);
+		val.workload2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * 100, 0) + '%';
+		val.classsizes2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * userInput.classSizes, 1);
+	});
+
+//	ddj.quickinfo.show(data);
+}
+
+// -----------------------------------------------------------------------------
+
 function dataUpdated() {
 	'use strict';
-	
-	var classSizes = document.getElementById('settingClassSizes');
-	console.log(classSizes);
+
+	var dirty = false;
+
+	var classSizes = document.getElementById('settingClassSizes').value;
+	dirty |= userInput.classSizes !== classSizes;
+	userInput.classSizes = classSizes;
+
+	if (dirty) {
+		updateDirtyData();
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -111,6 +173,8 @@ $(document).on("pageshow", "#pageMap", function () {
 		onFocusOnce: mapAction
 	});
 
+	dataUpdated();
+	
 	var dataUrlStudentDevelopment =  config.dataUrl + '?nocache=' + (new Date().getTime());
 
 	$.getJSON(dataUrlStudentDevelopment, function (dataStudentDevelopment) {
