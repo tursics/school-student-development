@@ -384,6 +384,17 @@
 	color: #fff;
 }
 
+.bigSign .ui-input-text {
+    display: inline-block;
+	float: right;
+}
+.bigSign .ui-input-text input {
+   width: 4rem;
+}
+.bigSign .clear {
+   clear: both;
+}
+
 @media (max-width: 30em) {
 	.bigSign {
 		bottom: 0;

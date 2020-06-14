@@ -21,7 +21,11 @@ var userInput = {
 	primarySchoolYears: 6,
 	classSizes:  24,
 	seatsPerClassSizes: 144,
-}
+};
+
+var globalData = {
+	selectedItem: null,
+};
 
 // -----------------------------------------------------------------------------
 
@@ -65,7 +69,8 @@ function updateMapSelectItem(data) {
 
 	mapAction();
 
-	ddj.quickinfo.show(data);
+	globalData.selectedItem = data;
+	ddj.quickinfo.show(globalData.selectedItem);
 }
 
 // -----------------------------------------------------------------------------
@@ -98,9 +103,15 @@ function updateDirtyData() {
 		val.seats2018 = formatGermanFloat(parseGermanFloat(val.draftiness2018) * userInput.seatsPerClassSizes, 0);
 		val.workload2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * 100, 0) + '%';
 		val.classsizes2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * userInput.classSizes, 1);
-	});
 
-//	ddj.quickinfo.show(data);
+		val.seats2019 = formatGermanFloat(parseGermanFloat(val.draftiness2019) * userInput.seatsPerClassSizes, 0);
+		val.workload2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * 100, 0) + '%';
+		val.classsizes2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * userInput.classSizes, 1);
+
+		val.seats2020 = formatGermanFloat(parseGermanFloat(val.draftiness2020) * userInput.seatsPerClassSizes, 0);
+});
+
+	ddj.quickinfo.show(globalData.selectedItem);
 }
 
 // -----------------------------------------------------------------------------
