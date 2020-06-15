@@ -18,6 +18,7 @@ var config = {
 };
 
 var userInput = {
+	year: 0,
 	primarySchoolYears: 6,
 	classSizes:  24,
 	seatsPerClassSizes: 144,
@@ -42,7 +43,7 @@ function parseGermanFloat(str) {
 		return str;
 	}
 
-	var number = str.replace(/,/g, '.');
+	var number = (str + '').replace(/,/g, '.');
 	return parseFloat(number);
 }
 
@@ -100,18 +101,30 @@ function updateDirtyData() {
 	}
 
 	$.each(ddj.getData(), function (key, val) {
+		val.diffdraftinessCurrent = val['diffdraftiness' + userInput.year] || 0;
+		val.draftinessCurrent = val['draftiness' + userInput.year] || 1;
+		val.containerCurrent = val['container' + userInput.year] || '';
+		val.studentsCurrent = val['students' + userInput.year] || 0;
+		val.classesCurrent = val['classes' + userInput.year] || 0;
+
+		val.seatsCurrent = formatGermanFloat(parseGermanFloat(val.draftinessCurrent) * userInput.seatsPerClassSizes, 0);
+		val.workloadCurrent = formatGermanFloat(parseGermanFloat(val.studentsCurrent) / parseGermanFloat(val.seatsCurrent) * 100, 0);
+		val.classsizesCurrent = formatGermanFloat(parseGermanFloat(val.studentsCurrent) / parseGermanFloat(val.seatsCurrent) * userInput.classSizes, 1);
+
 		val.seats2018 = formatGermanFloat(parseGermanFloat(val.draftiness2018) * userInput.seatsPerClassSizes, 0);
-		val.workload2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * 100, 0) + '%';
+		val.workload2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * 100, 0);
 		val.classsizes2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * userInput.classSizes, 1);
 
 		val.seats2019 = formatGermanFloat(parseGermanFloat(val.draftiness2019) * userInput.seatsPerClassSizes, 0);
-		val.workload2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * 100, 0) + '%';
+		val.workload2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * 100, 0);
 		val.classsizes2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * userInput.classSizes, 1);
 
 		val.seats2020 = formatGermanFloat(parseGermanFloat(val.draftiness2020) * userInput.seatsPerClassSizes, 0);
-});
+	});
 
-	ddj.quickinfo.show(globalData.selectedItem);
+	if (globalData.selectedItem !== null) {
+		ddj.quickinfo.show(globalData.selectedItem);
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -124,6 +137,10 @@ function dataUpdated() {
 	var classSizes = document.getElementById('settingClassSizes').value;
 	dirty |= userInput.classSizes !== classSizes;
 	userInput.classSizes = classSizes;
+
+	var year = document.getElementById('settingYear').value;
+	dirty |= userInput.year !== year;
+	userInput.year = year;
 
 	if (dirty) {
 		updateDirtyData();
@@ -183,8 +200,6 @@ $(document).on("pageshow", "#pageMap", function () {
 //		attribution: 'icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon.com</a>',
 		onFocusOnce: mapAction
 	});
-
-	dataUpdated();
 	
 	var dataUrlStudentDevelopment =  config.dataUrl + '?nocache=' + (new Date().getTime());
 
@@ -201,6 +216,8 @@ $(document).on("pageshow", "#pageMap", function () {
 		ddj.init(data);
 		ddj.setUniqueIdentifier('BSN');
 	}).done(function() {
+		dataUpdated();
+
 		ddj.marker.init({
 			onAdd: function (marker, value) {
 				marker.color = 'blue';
@@ -270,6 +287,7 @@ $(document).on("pageshow", "#pageMap", function () {
 			onHide: function () {
 				$('#autocomplete').val('');
 				$('#infoSign').show();
+				globalData.selectedItem = null;
 			}
 		});
 

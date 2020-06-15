@@ -384,7 +384,8 @@
 	color: #fff;
 }
 
-.bigSign .signLine .ui-input-text {
+.bigSign .signLine .ui-input-text,
+.bigSign .signLine .ui-select {
     display: inline-block;
 	float: right;
 }
