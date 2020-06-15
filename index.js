@@ -110,21 +110,13 @@ function updateDirtyData() {
 		val.seatsCurrent = formatGermanFloat(parseGermanFloat(val.draftinessCurrent) * userInput.seatsPerClassSizes, 0);
 		val.workloadCurrent = formatGermanFloat(parseGermanFloat(val.studentsCurrent) / parseGermanFloat(val.seatsCurrent) * 100, 0);
 		val.classsizesCurrent = formatGermanFloat(parseGermanFloat(val.studentsCurrent) / parseGermanFloat(val.seatsCurrent) * userInput.classSizes, 1);
-
-		val.seats2018 = formatGermanFloat(parseGermanFloat(val.draftiness2018) * userInput.seatsPerClassSizes, 0);
-		val.workload2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * 100, 0);
-		val.classsizes2018 = formatGermanFloat(parseGermanFloat(val.students2018) / parseGermanFloat(val.seats2018) * userInput.classSizes, 1);
-
-		val.seats2019 = formatGermanFloat(parseGermanFloat(val.draftiness2019) * userInput.seatsPerClassSizes, 0);
-		val.workload2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * 100, 0);
-		val.classsizes2019 = formatGermanFloat(parseGermanFloat(val.students2019) / parseGermanFloat(val.seats2019) * userInput.classSizes, 1);
-
-		val.seats2020 = formatGermanFloat(parseGermanFloat(val.draftiness2020) * userInput.seatsPerClassSizes, 0);
 	});
 
 	if (globalData.selectedItem !== null) {
 		ddj.quickinfo.show(globalData.selectedItem);
 	}
+
+	ddj.marker.update();
 }
 
 // -----------------------------------------------------------------------------
@@ -216,11 +208,17 @@ $(document).on("pageshow", "#pageMap", function () {
 		ddj.init(data);
 		ddj.setUniqueIdentifier('BSN');
 	}).done(function() {
-		dataUpdated();
-
 		ddj.marker.init({
 			onAdd: function (marker, value) {
-				marker.color = 'blue';
+				if (value.workloadCurrent < 50) {
+					marker.color = 'blue';
+				} else if (value.workloadCurrent <= 100) {
+					marker.color = 'green';
+				} else if (value.workloadCurrent <= 120) {
+					marker.color = 'orange';
+				} else {
+					marker.color = 'red';
+				}
 //				marker.iconPrefix = 'pin';
 //				marker.iconFace = value.pin;
 
@@ -290,6 +288,8 @@ $(document).on("pageshow", "#pageMap", function () {
 				globalData.selectedItem = null;
 			}
 		});
+
+		dataUpdated();
 
 		$('.visibleWithoutData').hide();
 		$('.visibleWithData').show();
