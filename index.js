@@ -210,7 +210,7 @@ $(document).on("pageshow", "#pageMap", function () {
 	}).done(function() {
 		ddj.marker.init({
 			onAdd: function (marker, value) {
-				if (value.workloadCurrent < 50) {
+				if (value.workloadCurrent < 80) {
 					marker.color = 'blue';
 				} else if (value.workloadCurrent <= 100) {
 					marker.color = 'green';
