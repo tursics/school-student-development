@@ -18,6 +18,9 @@
 - [x]  bei den Gemeinschaftsschulen Theodor-Heuss (01K10) und bei der Heinrich-von-Stephan (01K04) sollten wir im Titelbereich "Grundstufe" dazuschreiben. Vorschlag: Als Teil des Felds "Schulname", also z.B.: "Heinrich-von-Stephan-Gemeinschaftsschule (Grundstufe)"
 - [ ]  und dann sollten wir noch die Container erwähnen, die inzwischen hier und da mal stehen. Vielleicht wird das einfach eine zusätzliche Datenspalte? Die Container werden bei der Frequenzberechnung ja nicht mitgezählt (weil temporär), wirken sich aber doch "mildernd" auf die Platzsituation aus; das wäre schon sinnvoll darzustellen. Vielleicht pro Jahr in der ersten Zeile; dann wäre es z.B.: "4,5 Züge / formal 648 Plätze[, und Container]". Wenn du in dem online-doc die Spalten so anlegst, wie sie sein sollen, kann ich sie befüllen - ist nicht viel ...
 - [ ]  Und natürlich wäre irgendetwas wie "Zusammenstellung BEA Mitte / Irrtümer vorbehalten" (sowie natürlich sehr gerne dein Name!) super.
+- [ ]  Farbskala erklären
+- [ ]  In der Ausgabe auf dem Schild fände ich gut, für das zukünftige Schuljahr "Voraussichtlich ca." vor die Schüler*innen-Zahl schreiben.
+- [ ]  Wir haben ja drei GS mit SESB in Mitte (Arkonaplatz, Neues Tor, Brandenburger Tor). Ich bin inzwischen ziemlich sicher, dass hier in den offiziellen Tabellen Dinge vermischt werden, dass nämlich nur die Zügigkeit der bezirklichen (also nicht-SESB-genutzten) Räume benannt wird, dass aber als SuS-Zahl ALLE Schüler*innen (icl. SESB) aufgeführt werden. Ein Beispiel ist die Arcona-GS - die steht als 2-zügig in den Unterlagen (Kap.: 288 SuS), aber mit 455 SuS (Sj 2018/19). Zu den 2 Zügen kommt aber noch ein Zug SESB dazu - bei 3 Zügen wäre die "Kapazität" immerhin 432 SuS; da sind 455 immer noch mehr, aber nicht mehr 158% (!!), sondern "nur" 105% - das ist wesentlich realistischer.
 
 ---
 
@@ -31,6 +34,7 @@
 
 * Klassenfrequenz: Dieser Wert bezeichnet die Größe der Klasse. Er ist für die Grundschulen in der Grundschulverordnung auf 23 bis 26 Kinder pro Klasse festgelegt, und bei Vorliegen bestimmter Indikatoren auf 21 bis 25 Kinder. Wie viele Kinder in die Berliner Schulgebäude "passen", hängt u.a. entscheidend von der Größe der Klassen ab. Andererseits ist die Größe der Klassen einer von mehreren Faktoren, die die Lern-Möglichkeiten entscheidend prägen, also eine Rahmenbedingung von Unterrichtsqualität. Um die Auswirkungen unterschiedlicher Klassenfrequenzen anschaulich zu machen, können Sie diesen Wert ändern. Entsprechend verändert sich dann die Zahl der Schulplätze, die formale Auslastung sowie die Ø-Frequenz laut Zügigkeit. Vorgegeben sind 24 Kinder pro Klasse, also der Berlin-übliche Wert für die Berechnung der "Kapazitäten" der Schulen.
 
+---
 
 # Data
 - RBS_OD_ESB_2012_12.geojson
