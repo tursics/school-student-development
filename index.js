@@ -212,9 +212,9 @@ $(document).on("pageshow", "#pageMap", function () {
 			onAdd: function (marker, value) {
 				if (value.workloadCurrent < 80) {
 					marker.color = 'blue';
-				} else if (value.workloadCurrent <= 100) {
+				} else if (value.workloadCurrent <= 95) {
 					marker.color = 'green';
-				} else if (value.workloadCurrent <= 120) {
+				} else if (value.workloadCurrent <= 110) {
 					marker.color = 'orange';
 				} else {
 					marker.color = 'red';
