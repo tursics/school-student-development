@@ -130,7 +130,7 @@ function dataUpdated() {
 	dirty |= userInput.classSizes !== classSizes;
 	userInput.classSizes = classSizes;
 
-	var year = document.getElementById('settingYear').value;
+	var year = parseInt($('#settingYear').find('.ui-btn.ui-btn-active').text(), 10);
 	dirty |= userInput.year !== year;
 	userInput.year = year;
 
@@ -300,6 +300,12 @@ $(document).on("pageshow", "#pageMap", function () {
 		ddj.getMap().addControl(new ControlInfo());
 
 		$('#autocomplete').val('');
+
+		$('#settingYear').find('.ui-btn').on('click', function(){      
+			$('#settingYear').find('.ui-btn').removeClass('ui-btn-active');
+			$(this).addClass('ui-btn-active');
+			dataUpdated();
+		});
 
 		$("#popupShare").on('popupafteropen', function () {
 			$('#shareLink input').focus().select();
