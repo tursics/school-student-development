@@ -106,6 +106,7 @@ function updateDirtyData() {
 		val.containerCurrent = val['container' + userInput.year] || '';
 		val.studentsCurrent = val['students' + userInput.year] || 0;
 		val.startingclassesCurrent = val['startingclasses' + userInput.year] || 0;
+		val.startingstudentsCurrent = val['startingstudents' + userInput.year] || 0;
 
 		val.seatsCurrent = formatGermanFloat(parseGermanFloat(val.draftinessCurrent) * userInput.seatsPerClassSizes, 0);
 		val.workloadCurrent = formatGermanFloat(parseGermanFloat(val.studentsCurrent) / parseGermanFloat(val.seatsCurrent) * 100, 0);
