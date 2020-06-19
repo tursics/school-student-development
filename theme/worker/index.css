@@ -728,6 +728,53 @@
 	color: #a23336 !important;
 }
 
+/* style tutorial */
+
+#popupTutorial {
+	height: 20em;
+}
+#popupTutorial .footerTutorial {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	bottom: 10px;
+}
+#popupTutorial .footerTutorial div:nth-child(1) {
+	float: left;
+	line-height: 3em;
+	text-align: left;
+}
+#popupTutorial .footerTutorial div:nth-child(2) {
+	float: right;
+	text-align: right;
+}
+#popupTutorial .footerTutorial div:nth-child(3) {
+	clear: both;
+}
+#popupTutorial .ui-controlgroup-horizontal .ui-btn {
+	background: #a23336;
+	border: 1px solid #fff !important;
+	color: #fff;
+	text-shadow: none;
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0;
+	padding: 0.5em 0.7em;
+	font-size:13px;
+}
+#popupTutorial .ui-controlgroup-horizontal .ui-btn.ui-first-child {
+	border-right: none;
+	border-radius: 1.2em 0 0 1.2em;
+}
+#popupTutorial .ui-controlgroup-horizontal .ui-btn.ui-last-child {
+	border-right: none;
+	border-radius: 0 1.2em 1.2em 0;
+}
+#popupTutorial .ui-controlgroup-horizontal .ui-btn.disabled {
+	background: none !important;
+	pointer-events: none
+}
+
 /* color theme for printer labels and autocomplete list */
 
 .printerLabel div.blue, .autocomplete-suggestion div.blue {

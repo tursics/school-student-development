@@ -142,6 +142,35 @@ function dataUpdated() {
 
 // -----------------------------------------------------------------------------
 
+function initTutorial() {
+	if ($('#popupTutorial').length !== 1) {
+		return;
+	}
+
+	var pages = $('#popupTutorial').find('[data-tutorial="page"]');
+	var page = 0;
+
+	pages.append(
+		'<div class="footerTutorial">' +
+			'<div>' +
+				'Schritt ' + (page + 1) + ' von ' + pages.length +
+			'</div>' +
+			'<div data-role="controlgroup" data-type="horizontal">' +
+				'<a href="#" class="ui-btn ui-corner-all ui-btn-a ' + (page === 0 ? 'disabled': '') + '"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>' +
+				'<a href="#" class="ui-btn ui-corner-all ui-btn-a"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>' +
+				'<a href="#" class="ui-btn ui-corner-all ui-btn-a"><i class="fa fa-times" aria-hidden="true"></i></a>' +
+			'</div>' +
+		'</div>'
+	);
+
+	var controlgroups = pages.find('[data-role="controlgroup"]');
+	controlgroups.controlgroup({direction: "horizontal"});
+
+	$('#popupTutorial').popup('open');
+}
+
+// -----------------------------------------------------------------------------
+
 var ControlInfo = L.Control.extend({
 	options: {
 		position: 'bottomright'
@@ -160,6 +189,9 @@ var ControlInfo = L.Control.extend({
 		}
 		if ($('#popupAuthor').length === 1) {
 			container.innerHTML += '<a style="font-size:1.2em" href="#popupAuthor" title="Autor" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope" aria-hidden="true"></i></a>';
+		}
+		if ($('#popupTutorial').length === 1) {
+			container.innerHTML += '<a style="font-size:1.2em" href="#popupTutorial" title="Anleitung" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>';
 		}
 
 		return container;
@@ -326,6 +358,8 @@ $(document).on("pageshow", "#pageMap", function () {
 			updateEmbedURI();
 			$('#popupShare').popup('reposition', 'positionTo: window');
 		});
+
+		initTutorial();
 	});
 });
 
