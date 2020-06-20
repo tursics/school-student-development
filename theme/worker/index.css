@@ -514,7 +514,7 @@
 
 /* dialogs */
 
-#popupAuthor, #popupInfo, #popupShare, #popupShare .ui-btn {
+#popupAuthor, #popupInfo, #popupShare, #popupShare .ui-btn, #popupTutorial {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 13px;
 }
@@ -731,7 +731,8 @@
 /* style tutorial */
 
 #popupTutorial {
-	height: 20em;
+	height: 15em;
+	width: 30em;
 }
 #popupTutorial .footerTutorial {
 	position: absolute;

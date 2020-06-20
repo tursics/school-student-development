@@ -153,7 +153,7 @@ function initTutorial() {
 	pages.append(
 		'<div class="footerTutorial">' +
 			'<div>' +
-				'Schritt ' + (page + 1) + ' von ' + pages.length +
+				'Seite ' + (page + 1) + ' von ' + pages.length +
 			'</div>' +
 			'<div data-role="controlgroup" data-type="horizontal">' +
 				'<a href="#" class="ui-btn ui-corner-all ui-btn-a ' + (page === 0 ? 'disabled': '') + '"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>' +
