@@ -143,30 +143,107 @@ function dataUpdated() {
 // -----------------------------------------------------------------------------
 
 function initTutorial() {
-	if ($('#popupTutorial').length !== 1) {
+	'use strict';
+
+	if ($('[data-tutorial="dialog"]').length !== 1) {
 		return;
 	}
 
-	var pages = $('#popupTutorial').find('[data-tutorial="page"]');
-	var page = 0;
+	var tutorial = $('[data-tutorial="dialog"]');
+	var pages = tutorial.find('[data-tutorial="page"]');
 
-	pages.append(
-		'<div class="footerTutorial">' +
+	tutorial.append(
+		'<div data-tutorial="footer">' +
 			'<div>' +
-				'Seite ' + (page + 1) + ' von ' + pages.length +
+				'Seite <span data-tutorial-currentpage>1</span> von ' + pages.length +
 			'</div>' +
 			'<div data-role="controlgroup" data-type="horizontal">' +
-				'<a href="#" class="ui-btn ui-corner-all ui-btn-a ' + (page === 0 ? 'disabled': '') + '"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>' +
-				'<a href="#" class="ui-btn ui-corner-all ui-btn-a"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>' +
-				'<a href="#" class="ui-btn ui-corner-all ui-btn-a"><i class="fa fa-times" aria-hidden="true"></i></a>' +
+				'<a href="#" class="ui-btn ui-corner-all ui-btn-a" onclick="onTutorialBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>' +
+				'<a href="#" class="ui-btn ui-corner-all ui-btn-a" onclick="onTutorialNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>' +
+//				'<a href="#" class="ui-btn ui-corner-all ui-btn-a"><i class="fa fa-times" aria-hidden="true"></i></a>' +
 			'</div>' +
 		'</div>'
 	);
 
-	var controlgroups = pages.find('[data-role="controlgroup"]');
+	var controlgroups = tutorial.find('[data-role="controlgroup"]');
 	controlgroups.controlgroup({direction: "horizontal"});
 
-	$('#popupTutorial').popup('open');
+	$('[data-tutorial="dialog"]').popup({
+		afterclose: function( event, ui ) {
+			gotoTutorialStart();
+		}
+	});
+
+	gotoTutorialStart();
+
+	$('[data-tutorial="dialog"]').popup('open');
+}
+
+// -----------------------------------------------------------------------------
+
+function gotoTutorialStart() {
+	'use strict';
+
+	var pageElement = $('[data-tutorial-currentpage]')[0];
+
+	pageElement.textContent = 1;
+
+	updateTutorialPagesAndButtons();
+}
+
+// -----------------------------------------------------------------------------
+
+function onTutorialBack() {
+	'use strict';
+
+	var pageElement = $('[data-tutorial-currentpage]')[0],
+		page = parseInt(pageElement.textContent, 10);
+
+	if (page > 1) {
+		pageElement.textContent = page - 1;
+	}
+
+	updateTutorialPagesAndButtons();
+}
+
+// -----------------------------------------------------------------------------
+
+function onTutorialNext() {
+	'use strict';
+
+	var pageElement = $('[data-tutorial-currentpage]')[0],
+		pages = $('[data-tutorial="dialog"]').find('[data-tutorial="page"]'),
+		page = parseInt(pageElement.textContent, 10);
+
+	if (page < pages.length) {
+		pageElement.textContent = page + 1;
+
+		updateTutorialPagesAndButtons();
+	} else {
+		$('[data-tutorial="dialog"]').popup('close');
+	}
+}
+
+// -----------------------------------------------------------------------------
+
+function updateTutorialPagesAndButtons() {
+	'use strict';
+
+	var tutorial = $('[data-tutorial="dialog"]'),
+		pageElement = $('[data-tutorial-currentpage]')[0],
+		page = parseInt(pageElement.textContent, 10),
+		pages = tutorial.find('[data-tutorial="page"]'),
+		controlgroupLinks = tutorial.find('[data-role="controlgroup"] a'),
+		back = $(controlgroupLinks[0]);
+
+	pages.css('display', 'none');
+	$(pages[page - 1]).css('display', 'block');
+
+	if (page < 2) {
+		back.removeClass('disabled').addClass('disabled');
+	} else {
+		back.removeClass('disabled');
+	}
 }
 
 // -----------------------------------------------------------------------------

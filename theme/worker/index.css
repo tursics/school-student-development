@@ -730,29 +730,36 @@
 
 /* style tutorial */
 
-#popupTutorial {
+[data-tutorial="dialog"] {
 	height: 15em;
 	width: 30em;
 }
-#popupTutorial .footerTutorial {
-	position: absolute;
-	left: 20px;
-	right: 20px;
-	bottom: 10px;
+[data-tutorial="page"] {
+	padding: 1em;
 }
-#popupTutorial .footerTutorial div:nth-child(1) {
+[data-tutorial="footer"] {
+	position: absolute;
+	left: 1em;
+	right: 1em;
+	bottom: 1em;
+}
+[data-tutorial="footer"] div:nth-child(1) {
 	float: left;
-	line-height: 3em;
+	line-height: 2.4em;
 	text-align: left;
 }
-#popupTutorial .footerTutorial div:nth-child(2) {
+[data-tutorial="footer"] div:nth-child(2) {
 	float: right;
 	text-align: right;
 }
-#popupTutorial .footerTutorial div:nth-child(3) {
+[data-tutorial="footer"] div:nth-child(3) {
 	clear: both;
 }
-#popupTutorial .ui-controlgroup-horizontal .ui-btn {
+[data-tutorial="footer"] .ui-controlgroup-horizontal {
+	margin: 0;
+	font-size: 1em;
+}
+[data-tutorial="footer"] .ui-controlgroup-horizontal .ui-btn {
 	background: #a23336;
 	border: 1px solid #fff !important;
 	color: #fff;
