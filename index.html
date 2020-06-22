@@ -81,8 +81,10 @@
 						<div class="clear"></div>
 					</div>
 					<div>
-						Schüler pro Klasse: 
-						<input type="number" value="24" min="8" max="50" onchange="dataUpdated()" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" id="settingClassSizes">
+						<span class="tutorialClassSizes"></span>Schüler*innen pro Klasse: 
+						<span style="display: inline-flex;">
+							<input type="number" value="24" min="8" max="50" onchange="dataUpdated()" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" id="settingClassSizes">
+						</span>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -127,7 +129,7 @@
 
 					<div data-hide-if-zero="startingclassesCurrent">Es werden <span data-quickdata="startingclassesCurrent"></span> Klassen aufgenommen</div>
 
-					<div data-hide-if-zero="studentsCurrent"><span data-hide-if-zero="startingclassesCurrent">Voraussichtlich ca. </span><span data-hide-if-zero="startingstudentsCurrent">Voraussichtlich ca. </span><span data-quickdata="studentsCurrent"></span> Schülerinnen und Schüler</div>
+					<div data-hide-if-zero="studentsCurrent"><span data-hide-if-zero="startingclassesCurrent">Voraussichtlich ca. </span><span data-hide-if-zero="startingstudentsCurrent">Voraussichtlich ca. </span><span data-quickdata="studentsCurrent"></span> Schüler*innen</div>
 					<div><span data-quickdata="draftinessCurrent"></span> Züge mit <span data-quickdata="seatsCurrent"></span> Plätzen</div>
 					<div data-hide-if-zero="workloadCurrent"><span data-quickdata="workloadCurrent"></span>% Auslastung</div>
 					<div data-hide-if-zero="classsizesCurrent"><span data-quickdata="classsizesCurrent"></span> Ø Frequ. lt. Zügigk.</div>
@@ -192,7 +194,7 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="popup" id="popupAuthor" data-theme="a" class="ui-corner-all">
+		<div data-role="popup" data-icon="fa fa-info" id="popupAuthor" data-theme="a" class="ui-corner-all">
 			<div style="padding:10px 20px;">
 				<h3>Über die Karte</h3>
 				<div>
@@ -207,7 +209,7 @@
 					Die Webseitenquelltexte können Sie <a href="https://github.com/tursics/school-student-development">auf github</a> ansehen und frei (MIT-Lizenz) verwenden.
 				</div>
 				<div>
-					Zusammenstellung BEA Mitte / Irrtümer vorbehalten. Entwickelt von Thomas Tursics.
+					Zusammenstellung BEA Mitte / Irrtümer vorbehalten. Entwickelt von Jan Krebs und Thomas Tursics.
 				</div>
 				<div>
 					Haben Sie eine Anmerkung oder einen Fehler entdeckt, dann freue ich mich über <a href="mailto:thomas@tursics.de">Ihre E-Mail</a>.
@@ -217,16 +219,58 @@
 		</div>
 		<div data-role="popup" data-tutorial="dialog" id="popupTutorial" data-theme="b" class="ui-corner-all">
 			<div data-tutorial="page">
-Die Karte zeigt die Schulplätze bei Grundschulen in Berlin-Mitte und Lichtenberg an. 
+				Die Karte zeigt die geplante Schulplatzbelegung bei Grundschulen in Berlin-Mitte und Lichtenberg an.<br>
+				<br>
+				Seit Jahren steigt die Anzahl der Schüler*innen kontinuierlich an.
+				Doch wie wird die Verteilung nach den Sommerferien sein?
+				Welche Schule ist bietet noch Platz, welche ist seit Jahren mehr als voll belegt?
+			</div>
+			<div data-tutorial="page">
+				Aus dem Verhältnis zwischen der Zahl an Schulplätzen und der Zahl der Kinder,
+				die tatächlich an dieser Schule lernen, lässt sich berechnen,
+				wie stark "ausgelastet" eine Schule ist.<br>
+				<br>
+				Bei gleicher Zahl von Kindern und Schulplätzen, liegt die Auslastung bei 100%. Trotzdem werden die Klassen in der Praxis etwas unterschiedliche Größen haben.
+			</div>
+			<div data-tutorial="page">
+				Auf der Karte wird jede Schule mit einem Pin dargestellt und die Auslastung farblich dargestellt.<br>
+				<br>
+				<div style="position: relative;padding-left: 3em;">
+					<div class="awesome-marker-icon-gray awesome-marker" style="margin-top: -.7em">
+						<i class="fa fa-dot-circle-o icon-white"></i>
+					</div>
+					Schule ohne Schüler
+				</div>
+				<div style="position: relative;padding-left: 3em;">
+					<div class="awesome-marker-icon-blue awesome-marker" style="margin-top: -.7em">
+						<i class="fa fa-dot-circle-o icon-white"></i>
+					</div>
+					&lt; 80% Auslastung
+				</div>
+				<div style="position: relative;padding-left: 3em;">
+					<div class="awesome-marker-icon-green awesome-marker" style="margin-top: -.7em">
+						<i class="fa fa-dot-circle-o icon-white"></i>
+					</div>
+					&lt; 95% Auslastung
+				</div>
+				<div style="position: relative;padding-left: 3em;">
+					<div class="awesome-marker-icon-orange awesome-marker" style="margin-top: -.7em">
+						<i class="fa fa-dot-circle-o icon-white"></i>
+					</div>
+					&lt; 110% Auslastung
+				</div>
+				<div style="position: relative;padding-left: 3em;height:2.5em">
+					<div class="awesome-marker-icon-red awesome-marker" style="margin-top: -.7em">
+						<i class="fa fa-dot-circle-o icon-white"></i>
+					</div>
+					mehr als 110% Auslastung
+				</div>
 			</div>
 			<div data-tutorial="page">
 Züge: Die Größe der Schulen wird in Zügen angegeben, jede Schule hat also eine bestimmte "Zügigkeit". Ein Zug bedeutet: Eine Klasse in jedem Jahrgang. Da die Berliner Grundschule regelmäßig von Jahrgang 1 bis Jahrgang 6 reicht, bedeutet ein Zug also, dass sechs Schulklassen in der Schule sind. Bei einer 4-zügigen Schule sind es jeweils vier Parallelklassen - also vier erste, vier zweite ... vier sechste, insgesamt also 24 Klassen. Da jede Klasse einen gewissen Platz braucht, ist die Zügigkeit direkt von der Zahl der Räume abhängig, die zur Verfügung stehen. Bei älteren Gebäuden wird die Zügigkeit aufgrund der vorhandenen Räume ermittelt. Das führt dazu, dass es auch (gerundet) "halbe" Zügigkeiten gibt (z.B. 3,5-zügig). Hier gibt es jedoch keine halben Klassen, sondern es werden zum Beispiel von Jahr zu Jahr wechselnd zwei und drei erste Klassen aufgenommen. - Wenn eine Schule baulich erweitert wird (z.B. durch einen MEB), dann vergrößert sich die Zügigkeit entsprechend.
 			</div>
 			<div data-tutorial="page">
 Formale Zahl an Plätzen: Die Zahl der Züge und Klassen ist durch die vorhandenen Räume vorgegeben. Die Zahl der Kinder, die in einer Schule gleichzeitig lernen können, hängt dann davon ab, wie viele Kinder in jeder Klasse sind ("Klassenfrequenz"). In Berlin wird diese "Kapazität" der Grundschulen mit 24 Kindern pro Klasse berechnet. Da pro Zug sechs Klassen vorhanden sind, kann die Zahl der Plätze einfach aus der Zügigkeit errechnet werden. Die tatsächliche Größen der Klassen ist jedoch unterschiedlich, und sie sich ändert sich außerdem immer wieder. Die so berechnete Zahl der Plätze ist daher zunächst eine formale Größe.
-			</div>
-			<div data-tutorial="page">
-Auslastung: Aus dem Verhältnis zwischen der formal errechneten Zahl an Schulplätzen und der Zahl der Kinder, die tatächlich an dieser Schule lernen, lässt sich berechnen, wie stark "ausgelastet" die Schule ist. Wenn es genau so viele Kinder wie Schulplätze sind, liegt die Auslastung bei 100%. Trotzdem werden die Klassen in der Praxis etwas unterschiedliche Größen haben.
 			</div>
 			<div data-tutorial="page">
 Ø-Frequenz laut Zügigkeit: Weil der Schulraum in Berlin vielfach nicht ausreicht, sind viele Schulen zu mehr als 100% "ausgelastet". Das hat von Schule zu Schule, von Klasse zu Klasse unterschiedliche Auswirkungen. Es können Klassen vergrößert werden. Oder es können Fachräume zugunsten von allgemeinen Unterrichtsräumen aufgelöst werden und dadurch mehr Klassen eingerichtet werden. Die "Ø-Frequenz laut Zügigkeit" ist ein theoretisch errechneter Wert, der die (Über-) Auslastung einer Schule anschaulicher macht als der reine Auslastungs-Wert in Prozent. Für die "Ø-Frequenz laut Zügigkeit" wird angenommen, dass die Zahl der eingerichteten Klassen genau so groß ist wie laut Zügigkeit vorgesehen. Und es wird angenommen, dass sich alle Schüler*innen gleichmäßig auf diese Klassen verteilen würden. In diesem Modell gibt "Ø-Frequenz laut Zügigkeit" an, wie viele Schüler*innen dann durchschnittlich in jeder Klasse wären.

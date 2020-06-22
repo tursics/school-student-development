@@ -308,6 +308,9 @@
 	border-right: none;
 	border-radius: 0 1.2em 1.2em 0;
 }
+#settingClassSizes {
+/*	float: right;*/
+}
 #searchBox .searchInput i, .bigSign .searchInput i {
 	padding: .6em 0 0 .6em;
 	color: #a23336;
@@ -315,7 +318,7 @@
 #searchBox .searchInput input::placeholder, .bigSign .searchInput input::placeholder {
 	color: #a23336;
 }
-#searchBox input {
+#searchBox input, input[type=number] {
 	font-size: 13px;
 	font-family: 'Montserrat', sans-serif;
 	font-style: normal;
@@ -332,6 +335,23 @@
 }
 #searchBox input:-moz-placeholder {
 	color: #aaa;
+}
+input[type=number] {
+	background: #fff;
+	color: #a23336;
+	border: 1px solid #a23336;
+	text-shadow: none;
+	border-radius: 2em;
+	box-shadow: none;
+	margin: 0;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+	opacity: 1;
+	border: 1px solid green;
 }
 @media (max-width: 40em) {
 	#searchBox {

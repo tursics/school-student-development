@@ -233,11 +233,14 @@ function updateTutorialPagesAndButtons() {
 		pageElement = $('[data-tutorial-currentpage]')[0],
 		page = parseInt(pageElement.textContent, 10),
 		pages = tutorial.find('[data-tutorial="page"]'),
+		positionTo = $(pages[page - 1]).data('position-to'),
 		controlgroupLinks = tutorial.find('[data-role="controlgroup"] a'),
 		back = $(controlgroupLinks[0]);
 
 	pages.css('display', 'none');
 	$(pages[page - 1]).css('display', 'block');
+
+	tutorial.popup('option', 'positionTo', positionTo || 'origin');
 
 	if (page < 2) {
 		back.removeClass('disabled').addClass('disabled');
@@ -256,19 +259,25 @@ var ControlInfo = L.Control.extend({
 	onAdd: function () {
 		'use strict';
 
-		var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+		var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom'),
+			icon;
 
 		if ($('#popupShare').length === 1) {
-			container.innerHTML = '<a style="font-size:1.2em" href="#popupShare" title="Teilen" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-share-alt" aria-hidden="true"></i></a>';
+			icon = $('#popupShare').data('icon') || 'fa fa-share-alt';
+			container.innerHTML = '<a style="font-size:1.2em" href="#popupShare" title="Teilen" data-rel="popup" data-position-to="window" data-transition="pop"><i class="' + icon + '" aria-hidden="true"></i></a>';
 		}
 		if ($('#popupInfo').length === 1) {
-			container.innerHTML += '<a style="font-size:1.2em" href="#popupInfo" title="Info" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-info" aria-hidden="true"></i></a>';
+			icon = $('#popupInfo').data('icon') || 'fa fa-info';
+			container.innerHTML += '<a style="font-size:1.2em" href="#popupInfo" title="Info" data-rel="popup" data-position-to="window" data-transition="pop"><i class="' + icon + '" aria-hidden="true"></i></a>';
 		}
 		if ($('#popupAuthor').length === 1) {
-			container.innerHTML += '<a style="font-size:1.2em" href="#popupAuthor" title="Autor" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope" aria-hidden="true"></i></a>';
+			icon = $('#popupAuthor').data('icon') || 'fa fa-envelope';
+			container.innerHTML += '<a style="font-size:1.2em" href="#popupAuthor" title="Autor" data-rel="popup" data-position-to="window" data-transition="pop"><i class="' + icon + '" aria-hidden="true"></i></a>';
 		}
+//		if ($('[data-tutorial="dialog"]').length === 1) {
 		if ($('#popupTutorial').length === 1) {
-			container.innerHTML += '<a style="font-size:1.2em" href="#popupTutorial" title="Anleitung" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>';
+			icon = $('#popupTutorial').data('icon') || 'fa fa-graduation-cap';
+			container.innerHTML += '<a style="font-size:1.2em" href="#popupTutorial" title="Anleitung" data-rel="popup" data-position-to="window" data-transition="pop"><i class="' + icon + '" aria-hidden="true"></i></a>';
 		}
 
 		return container;
@@ -320,7 +329,9 @@ $(document).on("pageshow", "#pageMap", function () {
 	}).done(function() {
 		ddj.marker.init({
 			onAdd: function (marker, value) {
-				if (value.workloadCurrent < 80) {
+				if (value.workloadCurrent < 1) {
+					marker.color = 'gray';
+				} else if (value.workloadCurrent < 80) {
 					marker.color = 'blue';
 				} else if (value.workloadCurrent <= 95) {
 					marker.color = 'green';
