@@ -386,7 +386,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	z-index: 1001;
 }
 
-.bigSign:after {
+/*.bigSign:after {
 	background: url('assets/sign-block.svg');
 	background-color: transparent;
 	background-position: top;
@@ -395,7 +395,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	content: '';
 	display: block;
 	height: 6.1em;
-}
+}*/
 
 .bigSign .sign {
 	background: #fff;
@@ -404,7 +404,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	margin: 1.2em .2em 0 0;
 	min-height: 4em;
 	pointer-events: auto;
-	transform: rotateY(-13deg);
+/*	transform: rotateY(-13deg);*/
 }
 
 .bigSign .sign > h3 {
@@ -439,6 +439,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
    clear: both;
 }
 
+.showMobile {
+	display: none;
+}
 @media (max-width: 30em) {
 	.bigSign {
 		bottom: 0;
@@ -458,6 +461,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 		border-right: 0;
 		padding-bottom: 15px;
 		padding-right: 45px;
+	}
+	.showMobile {
+		display: block !important;
 	}
 	.hideMobile {
 		display: none !important;

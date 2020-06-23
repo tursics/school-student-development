@@ -10,8 +10,8 @@
 	<meta name="keywords" content="Berlin,Schule,Kapazität,Schulkapazität,Mitte,Schulplätze,Grundschulen" />
 	<meta name="robots" content="index,follow" />
 
- 	<title>Schulplätze Grundschulen in Berlin-Mitte und Lichtenberg</title>
-	<meta property="og:title" content="Schulplätze Grundschulen in Berlin-Mitte und Lichtenberg" />
+ 	<title>Schulplätze an Grundschulen in Berlin-Mitte und Lichtenberg</title>
+	<meta property="og:title" content="Schulplätze an Grundschulen in Berlin-Mitte und Lichtenberg" />
 
 	<meta name="description" content="Marzahn-Hellersdorf investiert 140 Millionen Euro in den nächsten Jahren aus eigenen Mitteln in seine Schulgebäude. Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen." />
 	<meta property="og:description" content="Marzahn-Hellersdorf investiert 140 Millionen Euro in den nächsten Jahren aus eigenen Mitteln in seine Schulgebäude. Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen." />
@@ -67,8 +67,9 @@
 	<div data-role="page" id="pageMap">
 		<div role="main" class="ui-content" id="mapContainer"></div>
 		<div class="bigSign">
-			<div class="sign config">
+			<div class="sign config hideMobile">
 				<div class="signLine">
+					Zeige auf der Karte...
 				</div>
 				<div>
 					<div>
@@ -91,14 +92,10 @@
 			</div>
 			<div class="sign visibleWithoutErrors" id="infoSign">
 				<h3>
-					<span class="logo"><img src="assets/arms-marzahn-hellersdorf.svg"></span>
-					Schulplätze Grundschulen
+					Schulplätze an Grundschulen
 				</h3>
 				<div class="signLine">
-					Berlin-Mitte
-				</div>
-				<div>
-					Die Webseite ist noch in Arbeit. In den nächsten Tagen werden noch Dinge passieren.
+					Berlin-Mitte und Lichtenberg
 				</div>
 				<div>
 					Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen.
@@ -113,10 +110,16 @@
 				<div class="visibleWithoutData center">
 					<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 				</div>
+				<div class="hideMobile" style="padding: .5em 0 0 0">
+					<img src="assets/bima-rahmanda-unsplash.png" style="width: 100%">
+				</div>
+				<div class="showMobile" style="font-style: italic">
+					<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+					Hinweis: Nicht alle Funktionalitäten werden auf dem Handy angezeigt.
+				</div>
 			</div>
 			<div class="sign normal" id="receipt" data-quickinfo="box">
 				<h3>
-					<span class="logo"><img src="assets/arms-marzahn-hellersdorf.svg"></span>
 					Planungsregion <span data-quickdata="regiontitle"></span>
 				</h3>
 				<div class="signLine"><span data-quickdata="district"></span></div>
