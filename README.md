@@ -1,12 +1,12 @@
-# Schulplätze an Grundschulen in Berlin-Mitte und Lichtenberg
+# Schulplätze an Grundschulen in Berlin-Mitte, Lichtenberg und Marzahn-Hellersdorf
 
-Die Karte zeigt die geplante Schulplatzbelegung bei Grundschulen in Berlin-Mitte und Lichtenberg an.
+Die Karte zeigt die geplante Schulplatzbelegung bei Grundschulen in Berlin-Mitte, Lichtenberg und Marzahn-Hellersdorf an.
 
 Seit Jahren steigt die Anzahl der Schüler*innen kontinuierlich an. Doch wie wird die Verteilung nach den Sommerferien sein? Welche Schule bietet noch Platz, welche ist seit Jahren mehr als voll belegt?
 
 Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen.
 
-**Zusammenstellung BEA Mitte / Irrtümer vorbehalten. Entwickelt von Jan Krebs und Thomas Tursics.**
+**Zusammenstellung BEA Mitte, BEA Lichtenberg und BEA Marzahn-Hellersdorf / Irrtümer vorbehalten. Entwickelt von Jan Krebs und Thomas Tursics.**
 
 
 - Online-Version: http://www.tursics.de/story/schulplatz-an-grundschulen/
